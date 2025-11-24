@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-function SearchBar({item, setItem}){
+function SearchBar({searchItem, setSearchItem, handleSearch, loading, isEmpty}){
 
     const updateitem = ({target}) => {
-        setItem(target.value)
+        setSearchItem(target.value)
     }
     return(
         <div>
-            <form>
-                <input type="text" value={item} onChange={updateitem} style={{
+            <form onSubmit={handleSearch}>
+                <input type="text" value={searchItem} onChange={updateitem} style={{
                     width: '350px', 
                     padding: "12px 16px", 
                     fontSize: 16,
@@ -25,8 +25,7 @@ function SearchBar({item, setItem}){
                     border: 'none',
                     borderRadius: '8px',
                     cursor: 'pointer',
-                    fontWeight: 'bold'
-                    }}>SEARCH</button>
+                    fontWeight: 'bold'}} disabled={searchItem.length < 1}>{loading ? 'SEARCHING' : 'SEARCH'}</button>
             </form>
         </div>
     )
