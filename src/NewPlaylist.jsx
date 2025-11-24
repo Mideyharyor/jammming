@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { h3Styles, pStyles } from "./SearchResults";
 
 function NewPlaylist({ newplaylist, onRemove }){
     
@@ -18,16 +19,8 @@ function NewPlaylist({ newplaylist, onRemove }){
                     textAlign: 'left'
                 }}>
                     <div>
-                        <h3 style={{
-                            fontSize: 18,
-                            marginBottom: 8,
-                            fontWeight: '500'
-                        }}>{song.songTitle}</h3>
-                        <p style={{
-                            fontSize: 14,
-                            color: '#b3b3b3',
-                            margin: 0
-                        }}>{song.artist}</p>
+                        <h3 style={h3Styles}>{song.songTitle}</h3>
+                        <p style={pStyles}>{song.artist}</p>
                     </div>
                     <button onClick={() => onRemove(song)}>-</button>
                 </div>

@@ -1,5 +1,17 @@
 import React, {useState, useEffect} from "react";
 
+export const h3Styles = {
+    fontSize: 18,
+    marginBottom: 8,
+    fontWeight: 500
+}
+
+export const pStyles = {
+    fontSize: 14,
+    margin: 0,
+    color: '#b3b3b3'
+}
+
 function SearchResults({playlists, newplaylist, onAdd}){
 
     return(
@@ -14,16 +26,8 @@ function SearchResults({playlists, newplaylist, onAdd}){
                     alignItems: "center"
                     }}>
                     <div style={{textAlign: 'left'}}>
-                        <h3 style={{
-                            fontSize: 18,
-                            marginBottom: 8,
-                            fontWeight: 500
-                        }}>{playlist.songTitle}</h3>
-                        <p style={{
-                            fontSize: 14,
-                            margin: 0,
-                            color: '#b3b3b3'
-                        }}>{playlist.artist}</p>
+                        <h3 style={h3Styles}>{playlist.songTitle}</h3>
+                        <p style={pStyles}>{playlist.artist}</p>
                     </div>
                     <button onClick={() => onAdd(playlist)} style={{
                     }}>+</button>
